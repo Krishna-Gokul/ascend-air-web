@@ -23,9 +23,10 @@ public class Flight {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "FlightId")
 	private Integer flightId;
 
-	@Column(name = "FlightNumber")
+	@Column(name = "FlightNumber", unique = true)
 	private String flightNo;
 	
 	@Column(name = "FlightName")
@@ -42,6 +43,9 @@ public class Flight {
 	
 	@Column(name = "Origin")
 	private String flightOrigin;
+	
+	@Column(name = "Destination")
+	private String flightDestination;
 	
 	@Column(name = "DepatureTime")
 	private LocalDateTime depatureTime;
