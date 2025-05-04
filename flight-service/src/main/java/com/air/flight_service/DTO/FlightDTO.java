@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class FlightDTO {
 
-	private String flightNo;
+	private Integer flightNo;
 	
 	private String flightName;
 	

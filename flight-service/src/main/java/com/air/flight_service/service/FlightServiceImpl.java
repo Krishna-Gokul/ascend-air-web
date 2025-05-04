@@ -2,6 +2,7 @@ package com.air.flight_service.service;
 
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
@@ -46,6 +47,35 @@ public class FlightServiceImpl implements FlightService {
 		List<Flight> list =  flightRepo.findAll();
 		List<FlightDTO> dtoList = list.stream().map(flight -> Flight.generateDTO(flight)).collect(Collectors.toList());
 		return dtoList;
+	}
+
+
+	@Override
+	public FlightDTO getFlightByFlightNumber(Integer flightNo) {
+		Optional<Flight> opt = flightRepo.findById(flightNo);
+		if(opt.isEmpty()) {
+			return null;
+		}
+		Flight flight = opt.get();
+		return Flight.generateDTO(flight);
+	}
+
+
+	@Override
+	public String deleteFlight(Integer flightNo) {
+		flightRepo.deleteById(flightNo);
+		return "successfully deleted the flight!";
+	}
+
+
+	@Override
+	public FlightDTO updateFlight(FlightDTO dto) {
+		Optional<Flight> opt = flightRepo.findById(dto.getFlightNo());
+		if(opt.isEmpty()) {
+			return null;
+		}
+		Flight flight = opt.get();
+		return Flight.generateDTO(flight);
 	}
 	
 }

@@ -29,7 +29,7 @@ public class Flight {
 	private Integer flightId;
 
 	@Column(name = "FlightNumber", unique = true)
-	private String flightNo;
+	private Integer flightNo;
 	
 	@Column(name = "FlightName")
 	private String flightName;
