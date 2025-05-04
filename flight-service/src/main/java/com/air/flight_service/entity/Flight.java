@@ -2,6 +2,8 @@ package com.air.flight_service.entity;
 
 import java.time.LocalDateTime;
 
+import com.air.flight_service.DTO.FlightDTO;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -52,4 +54,19 @@ public class Flight {
 	
 	@Column(name = "ArrivalTime")
 	private LocalDateTime arrivalTime;
+	
+	/** converts Flight entity to DTO */
+	public static FlightDTO generateDTO(Flight fl) {
+		return FlightDTO.builder()
+				.flightNo(fl.getFlightNo())
+				.flightName(fl.getFlightName())
+				.flightMake(fl.getFlightMake())
+				.flightCapacity(fl.getFlightCapacity())
+				.flightOrigin(fl.getFlightOrigin())
+				.flightDestination(fl.getFlightDestination())
+				.depatureTime(fl.getDepatureTime())
+				.arrivalTime(fl.getArrivalTime())
+				.availableSeats(fl.getAvailableSeats())
+				.build();
+	}
 }

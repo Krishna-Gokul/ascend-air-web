@@ -2,9 +2,15 @@ package com.air.flight_service.DTO;
 
 import java.time.LocalDateTime;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class FlightDTO {
 
 	private String flightNo;
@@ -18,6 +24,8 @@ public class FlightDTO {
 	private Integer availableSeats;
 	
 	private String flightOrigin;
+	
+	private String flightDestination;
 	
 	private LocalDateTime depatureTime;
 	
