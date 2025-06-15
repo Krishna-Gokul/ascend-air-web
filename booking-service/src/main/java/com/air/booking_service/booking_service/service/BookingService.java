@@ -5,5 +5,7 @@ import com.air.booking_service.booking_service.model.Booking;
 public interface BookingService {
 
 	public String bookFlight(Booking b);
+	
+	public Booking getBookingDetailsById(Integer bookingId);
 
 }
